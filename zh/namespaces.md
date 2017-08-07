@@ -1,16 +1,9 @@
 <div class='article-menu'>
   <ul>
-    <li>
-      <a href="#overview">Working with Namespaces</a> <ul>
-        <li>
-          <a href="#setting-up">Setting up the framework</a>
-        </li>
-        <li>
-          <a href="#controllers">Controllers in Namespaces</a>
-        </li>
-        <li>
-          <a href="#models">Models in Namespaces</a>
-        </li>
+    <li> <a href="#overview">使用命名空间</a> <ul>
+        <li><a href="#setting-up">建立框架</a></li>
+        <li><a href="#controllers">控制器命名空间</a></li>
+        <li><a href="#models">模型命名空间</a></li>
       </ul>
     </li>
   </ul>
@@ -18,9 +11,9 @@
 
 <a name='overview'></a>
 
-# Working with Namespaces
+# 使用命名空间
 
-[Namespaces](http://php.net/manual/en/language.namespaces.php) can be used to avoid class name collisions; this means that if you have two controllers in an application with the same name, a namespace can be used to differentiate them. Namespaces are also useful for creating bundles or modules.
+[Namespaces](http://php.net/manual/en/language.namespaces.php) 命名空间可以用来避免类名冲突；这意味着如果在同一个应用程序中有两个同名的控制器，则可以使用命名空间来区分它们。命名空间还可以用来创建包或模块。
 
 <a name='setting-up'></a>
 
