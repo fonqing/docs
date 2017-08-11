@@ -1,18 +1,17 @@
 <div class='article-menu'>
   <ul>
     <li>
-      <a href="#requirements">Requirements</a> <ul>
+      <a href="#requirements">安装要求</a> <ul>
         <li>
-          <a href="#requirements-hardware">Hardware</a>
+          <a href="#requirements-hardware">硬件配置</a>
         </li>
         <li>
-          <a href="#requirements-software">Software</a>
+          <a href="#requirements-software">软件环境</a>
         </li>
       </ul>
     </li>
-    
     <li>
-      <a href="#installation">Installation</a> <ul>
+      <a href="#installation">安装</a> <ul>
         <li>
           <a href="#installation-linux">Linux</a> <ul>
             <li>
@@ -20,16 +19,15 @@
                 <li>
                   <a href="#installation-linux-debian-repository">Repository installation</a> <ul>
                     <li>
-                      <a href="#installation-linux-debian-repository-stable">Stable releases</a>
+                      <a href="#installation-linux-debian-repository-stable">稳定版本</a>
                     </li>
                     <li>
                       <a href="#installation-linux-debian-repository-nightly">Nightly releases</a>
                     </li>
                   </ul>
                 </li>
-                
                 <li>
-                  <a href="#installation-linux-debian-phalcon">Phalcon installation</a> <ul>
+                  <a href="#installation-linux-debian-phalcon">Phalcon安装</a> <ul>
                     <li>
                       <a href="#installation-linux-debian-phalcon-php5">PHP 5.x</a>
                     </li>
@@ -38,28 +36,25 @@
                     </li>
                   </ul>
                 </li>
-                
                 <li>
                   <a href="#installation-linux-debian-other-ppa">Additional PPAs</a>
                 </li>
               </ul>
             </li>
-            
             <li>
               <a href="#installation-linux-rpm">RPM based distributions (CentOS, Fedora, etc.)</a> <ul>
                 <li>
                   <a href="#installation-linux-rpm-repository">Repository installation</a> <ul>
                     <li>
-                      <a href="#installation-linux-rpm-repository-stable">Stable releases</a>
+                      <a href="#installation-linux-rpm-repository-stable">稳定版本</a>
                     </li>
                     <li>
                       <a href="#installation-linux-rpm-repository-nightly">Nightly releases</a>
                     </li>
                   </ul>
                 </li>
-                
                 <li>
-                  <a href="#installation-linux-rpm-phalcon">Phalcon installation</a> <ul>
+                  <a href="#installation-linux-rpm-phalcon">Phalcon安装</a> <ul>
                     <li>
                       <a href="#installation-linux-rpm-phalcon-php5">PHP 5.x</a>
                     </li>
@@ -68,13 +63,11 @@
                     </li>
                   </ul>
                 </li>
-                
                 <li>
                   <a href="installation-linux-rpm-other-rpm">Additional RPMs</a>
                 </li>
               </ul>
             </li>
-            
             <li>
               <a href="#installation-freebsd">FreeBSD</a>
             </li>
@@ -83,7 +76,6 @@
             </li>
           </ul>
         </li>
-        
         <li>
           <a href="#installation-macos">MacOS</a> <ul>
             <li>
@@ -94,15 +86,14 @@
             </li>
           </ul>
         </li>
-        
         <li>
           <a href="#installation-windows">Windows</a>
         </li>
         <li>
-          <a href="#installation-sources">Compile from sources</a>
+          <a href="#installation-sources">源码编译</a>
         </li>
         <li>
-          <a href="#installation-sources-advanced">Advanced Compilation</a>
+          <a href="#installation-sources-advanced">高级编译</a>
         </li>
       </ul>
     </li>
@@ -111,27 +102,27 @@
 
 <a name='requirements'></a>
 
-# Requirements
+# 安装要求
 
-Phalcon needs PHP to run. Its loosely coupled design allows developers to install Phalcon and use its functionality without additional extensions. Certain components have dependencies to other extensions. For instance using database connectivity will require the `php_pdo` extension. If your RDBMS is MySql/MariaDb or Aurora databases you will need the `php_mysqlnd` extension also. Similarly, using a PostgreSql database with Phalcon requires the `php_pgsql` extension.
+Phalcon需要通过PHP来运行。 Phalcon的松耦合设计允许开发人员使用其功能而无需额外的扩展。 某些组件与其他扩展有依赖关系，例如使用数据库连接将需要`php_pdo`扩展。 如果您的关系数据库是MySql / MariaDb或Aurora数据库，那么您还需要“php_mysqlnd”扩展。 类似地，使用Phalcon的PostgreSql数据库需要`php_pgsql`扩展。
 
 <a name='requirements-hardware'></a>
 
-## Hardware
+## 硬件需求
 
-Phalcon is designed to use as little resources as possible, while offering high performance. Although we have tested Phalcon in various low end environments, (such as 0.25GB RAM, 0.5 CPU), the hardware that you will choose will depend on the your application needs.
+Phalcon旨在尽可能降低资源占用，同时提供高性能。 虽然我们已经在各种低端环境（如0.25GB RAM，0.5 CPU）中测试了Phalcon，但您将选择的硬件将取决于您的应用需求。
 
-Our website and blog (as well as other sites) are hosted on an Amazon VM with 512MB RAM and 1 vCPU.
+我们的网站和博客（以及其他相关网站）托管在具有512MB内存和1个vCPU的Amazon虚拟主机上。
 
 <a name='requirements-software'></a>
 
-## Software
+## 软件环境
 
 - PHP >= 5.5
 
-<h5 class='alert alert-danger'>You should always try and use the latest version of Phalcon and PHP as both address bugs, security enhancements as well as performance. PHP 5.5 will be deprecated in the near future, and Phalcon 4 will only support PHP 7 </h5>
+<h5 class='alert alert-danger'>请优先最新版本的Phalcon和PHP，以便减少错误，增强安全性和提高性能。 PHP5.5将在不久的将来被淘汰，Phalcon 4将仅支持PHP 7</h5>
 
-Phalcon need the following extensions to run (minimal):
+Phalcon需要以下扩展才能运行（最低要求）:
 
 - `curl`
 - `gettext`
@@ -143,7 +134,7 @@ Phalcon need the following extensions to run (minimal):
 - `fileinfo`
 - `openssl`
 
-### Optional depending on the needs of your application
+### 建议安装扩展
 
 - [PDO](http://php.net/manual/en/book.pdo.php) Extension as well as the relevant RDBMS specific extension (i.e. [MySQL](http://php.net/manual/en/ref.pdo-mysql.php), [PostgreSql](http://php.net/manual/en/ref.pdo-pgsql.php) etc.)
 - [OpenSSL](http://php.net/manual/en/book.openssl.php) Extension
@@ -152,9 +143,9 @@ Phalcon need the following extensions to run (minimal):
 
 <a name='installation'></a>
 
-# Installation
+# 安装
 
-Since Phalcon is compiled as a PHP extension, its installation is somewhat different than any other traditional PHP framework. Phalcon needs to be installed and loaded as a module on your web server.
+由于Phalcon被编译为PHP扩展，因此其安装与任何其他传统PHP框架有所不同。 Phalcon需要作为扩展安装和加载到Web服务器上。
 
 <a name='installation-linux'></a>
 
