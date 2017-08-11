@@ -1,7 +1,6 @@
 <div class='article-menu'>
   <ul>
-    <li>
-      <a href="#requirements">安装要求</a> <ul>
+    <li><a href="#requirements">安装要求</a> <ul>
         <li>
           <a href="#requirements-hardware">硬件配置</a>
         </li>
@@ -10,8 +9,7 @@
         </li>
       </ul>
     </li>
-    <li>
-      <a href="#installation">安装</a> <ul>
+    <li><a href="#installation">安装</a> <ul>
         <li>
           <a href="#installation-linux">Linux</a> <ul>
             <li>
@@ -110,7 +108,7 @@ Phalcon需要通过PHP来运行。 Phalcon的松耦合设计允许开发人员�
 
 ## 硬件需求
 
-Phalcon旨在尽可能降低资源占用，同时提供高性能。 虽然我们已经在各种低端环境（如0.25GB RAM，0.5 CPU）中测试了Phalcon，但您将选择的硬件将取决于您的应用需求。
+Phalcon旨在尽可能降低资源占用，同时提供高性能。 虽然我们已经在各种低端环境（如0.25GB RAM，0.5 CPU）中测试了Phalcon，但建议您根据自己的应用需求选择合适的硬件配置。
 
 我们的网站和博客（以及其他相关网站）托管在具有512MB内存和1个vCPU的Amazon虚拟主机上。
 
@@ -149,9 +147,9 @@ Phalcon需要以下扩展才能运行（最低要求）:
 
 <a name='installation-linux'></a>
 
-## Linux
+## 在Linux上安装
 
-To install Phalcon on linux, you will need to add our repository in your distribution and then install it.
+要在Linux上安装Phalcon，您需要在发行版中添加我们的软件源，然后安装。
 
 <a name='installation-linux-debian'></a>
 
