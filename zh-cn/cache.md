@@ -7,15 +7,15 @@ title: 'Cache'
 keywords: 'cache, psr-16, base64, igbinary, json, msgpack, serialize, redis, memcached, apcu, factory, memory, stream'
 ---
 
-# Cache
+# 缓存
 
 <hr />
 
 ![](/assets/images/document-status-stable-success.svg)
 
-## Overview
+## 概述
 
-The [Phalcon\Cache](api/phalcon_cache#cache) namespace offers a Cache component, that implements the [PSR-16](psr-16) interface, making it compatible with any component that requires that interface for its cache.
+命名空间 [Phalcon\Cache](api/phalcon_cache#cache) 提供了一个可用的缓存组件, 并实现了 [PSR-16](psr-16) 接口, making it compatible with any component that requires that interface for its cache.
 
 ![](/assets/images/implements-psr--16-blue.svg)
 
@@ -54,13 +54,13 @@ $adapter = $adapterFactory->newInstance('apcu', $options);
 $cache = new Cache($adapter);
 ```
 
-### Operations
+### 操作
 
 Since the cache component is [PSR-16](https://www.php-fig.org/psr/psr-16/) compatible it implements all the necessary methods to satisfy the PSR-16 interfaces. Each Cache component contains a supplied Cache adapter which in turn is responsible for all operations.
 
 ### `get` - `getMultiple`
 
-To get data from the cache you need to call the `get()` method with a key and a default value. If the key exists or it has not been expired, the data stored in it will be returned. Alternatively the passed `defaultValue` will be returned (default `null`).
+使用 `get()` 方法访问您的缓存数据，方法具有两个参数，参数一是缓存键名，参数二是默认值. 如果键名指向的缓存数据存在且没有过期,此方法将返回存储的对应的数据。否则调用方法时传输的默认值 `defaultValue` 将被返回 (默认值 `null`).
 
 ```php
 $value = $cache->get('my-key');
@@ -68,7 +68,7 @@ $value = $cache->get('my-key');
 $value = $cache->get('my-key', 'default');
 ```
 
-If you wish to retrieve more than one key with one call, you can call `getMultiple()`, passing an array with the keys needed. The method will return an array of `key` => `value` pairs. Cache keys that do not exist or have expired will have `defaultValue` as a value (default `null`).
+当您需要通过一次调用返回过个数据时，您可以调用 `getMultiple()`, 第一个参数改为多个缓存键名的数组。此方法将返回 `key` => `value` 形式的关联数组. 如果缓存数据不存在或者已过期，方法将返回 `defaultValue`  (默认值 `null`).
 
 ```php
 $value = $cache->getMultiple(['my-key1', 'my-key2']);
@@ -78,7 +78,7 @@ $value = $cache->getMultiple(['my-key1', 'my-key2'], 'default');
 
 ### `has`
 
-To check whether a key exists in the cache (or it has not expired) you can call the `has()` method. The method will return `true` if the key exists, or `false` otherwise.
+通过一个缓存键名判断某个缓存是否存在 (或者未过期)，可以调用 `has()` 方法. 如果键名对应的缓存数据存在，那么方法返回布尔值 `true`,否则将返回 `false` 。
 
 ```php
 $exists = $cache->has('my-key');
@@ -86,13 +86,13 @@ $exists = $cache->has('my-key');
 
 ### `set` - `setMultiple`
 
-To save the data in the cache, you will need to use the `set()` method. The method accepts the key we wish to store the data under and the value of the item to store. The data needs to be of a type that supports serialization i.e. PHP type or an object that implements serialization. The last (optional) parameter is the TTL (time to live) value for this item. This option might not always be available, if the underlying adapter does not support it. The method will return `true` if the key exists, or `false` otherwise. If even one key is not successfully stored, the method will return `false`.
+保存数据到缓存, 需要调用 `set()` 方法. 方法有三个参数，第一个是缓存键名，第二个参数是要保存的数据。存储的数据必须是支持序列化存储的数据，例如： PHP 类型或者实现了序列化接口的对象. 最后一个参数(可选)TTL (存活时间) 缓存的存活时间. 这个参数并不总是可用的,当具体的缓存适配器不支持的时候。 当缓存键名存在时方法返回 `true`, 否则放回 `false`。 如果缓存没有成保存, 方法返回 `false`。
 
 ```php
 $result = $cache->setMultiple('my-key', $data);
 ```
 
-If you wish to store more than one element with one call, you can call `setMultiple()`, passing an array of key => value pairs for the multiple-set operation. As with `set` the last (optional) parameter is the TTL (time to live). The method will return `true` if the key exists, or `false` otherwise.
+如果想同时保存多个数据可以调用 `setMultiple()`, 第一个参数可以传递 key => value 形式键名和数据的关联数组 . As with `set` the last (optional) parameter is the TTL (time to live). The method will return `true` if the key exists, or `false` otherwise.
 
 ```php
 $value = $cache->setMultiple(
@@ -106,7 +106,7 @@ $value = $cache->setMultiple(
 
 ### `delete` - `deleteMultiple` - `clear`
 
-To delete an item from the cache you need to call the `delete()` method with a key. 方法返回 `true` 成功， `错误` 失败。 `
+从缓存中通过缓存键名删除数据调用 `delete()`。 方法返回 `true` 成功， `false` 失败。 `
 
 ```php
 $result = $cache->delete('my-key');
@@ -118,13 +118,13 @@ If you wish to delete more than one key with one call, you can call `deleteMulti
 $result = $cache->deleteMultiple(['my-key1', 'my-key2']);
 ```
 
-If you wish to clear all the keys, you can call the `clear()` method. 方法返回 `true` 成功， `错误` 失败。
+If you wish to clear all the keys, you can call the `clear()` method. 方法返回 `true` 成功， `false` 失败。
 
 ## 工厂
 
 ### `newInstance`
 
-We can easily create a [Phalcon\Cache](api/phalcon_cache#cache) class using the `new` keyword. However Phalcon offers the [Phalcon\Cache\CacheFactory](api/phalcon_cache#cache-cachefactory) class, so that developers can easily instantiate cache objects. The factory will accept a [Phalcon\Cache\AdapterFactory](api/phalcon_cache#cache-adapterfactory) object which will in turn be used to instantiate the necessary Cache class with the selected adapter and options. The factory always returns a new instance of [Phalcon\Cache](api/phalcon_cache#cache).
+我们可以方便的创建缓存实例 [Phalcon\Cache](api/phalcon_cache#cache) 通过 `new` 关键字. However Phalcon offers the [Phalcon\Cache\CacheFactory](api/phalcon_cache#cache-cachefactory) class, so that developers can easily instantiate cache objects. The factory will accept a [Phalcon\Cache\AdapterFactory](api/phalcon_cache#cache-adapterfactory) object which will in turn be used to instantiate the necessary Cache class with the selected adapter and options. The factory always returns a new instance of [Phalcon\Cache](api/phalcon_cache#cache).
 
 The example below shows how you can create a cache object using the `Apcu` adapter and `Json` serializer:
 
