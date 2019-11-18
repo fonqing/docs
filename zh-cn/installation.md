@@ -6,27 +6,27 @@ title: 'Installation'
 keywords: 'installation, installing Phalcon'
 ---
 
-# Installation
+# 安装
 
 * * *
 
 ![](/assets/images/document-status-stable-success.svg)
 
-## Requirements
+## 环境需求
 
 ### PHP 7.2
 
-Phalcon v4 supports only PHP 7.2 and above. PHP 7.1 has been released 2 years ago and its [active support](https://secure.php.net/supported-versions.php) has lapsed, so we decided to follow actively supported PHP versions.
+Phalcon v4 仅支持 PHP 7.2 以及以上版本。PHP 7.1 发布于2年以前，并且官方已经结束维护[active support](https://secure.php.net/supported-versions.php)支持, 所以我们决定仅支持较新的PHP版本。
 
 ### PSR
 
-Phalcon requires the PSR extension. The extension can be downloaded and compiled from [this](https://github.com/jbboehr/php-psr) GitHub repository. Installation instructions are available on the `README` of the repository. Once the extension has been compiled and is available in your system, you will need to load it to your `php.ini`. You will need to add this line:
+安装Phalcon之前，需要先安装PSR扩展. PSR扩展可以通过Github项目自行下载和编译 [连接地址](https://github.com/jbboehr/php-psr)。 安装方法请阅读项目内的 `README` 文档。 当此扩展编译安装完毕后, 请在 `php.ini` 载入PSR扩展，载入方法如下:
 
 ```ini
 extension=psr.so
 ```
 
-before
+之前
 
 ```ini
 extension=phalcon.so
@@ -36,17 +36,17 @@ Alternatively some distributions add a number prefix on `ini` files. If that is 
 
 ### PDO
 
-Since Phalcon is loosely coupled, it exposes functionality without the need for additional extensions. However certain components rely on additional extensions to work. When in need for database connectivity and access, you will need to install the `php_pdo` extension. If your RDBMS is MySQL/MariaDB or Aurora, you will need the `php_mysqlnd` extension also. Similarly, using a PostgreSql database with Phalcon requires the `php_pgsql` extension.
+Phalcon本身是松散耦合的, 无需其他额外的扩展。 但是，某些功能依赖其他一部分常用组件。如果您需要操作和访问数据库，那么安装  `php_pdo` 扩展是必要的。 如果您的关系数据是 MySQL/MariaDB 或者 Aurora, 您需要同时安装 `php_mysqlnd` 扩展。同上, 如果您通过 Phalcon 使用 PostgreSql 数据库则需要安装  `php_pgsql` 扩展。
 
-### Hardware
+### 硬件要求
 
-Phalcon is designed to use as little resources as possible, while offering high performance. Although we have tested Phalcon in various low end environments, (such as 0.25GB RAM, 0.5 CPU), the hardware that you will choose will depend on the your application needs.
+Phalcon旨在使用尽可能少的资源，同时提供高性能。 尽管我们已经在各种低端环境（例如0.25GB RAM，0.5 CPU）中测试了Phalcon，但是仍建议您根据自己的实际情况选择适用于您需求的硬件。
 
-We have hosted our website and blog for the last few years on an Amazon VM with 512MB RAM and 1 vCPU.
+过去几年，我们已经在具有512MB RAM和1个vCPU的Amazon VM上托管了我们的网站和博客。
 
-### Software
+### 软件
 
-> You should always try and use the latest version of Phalcon and PHP as both address bugs, security enhancements as well as performance.
+> 您应该始终尝试并使用最新版本的Phalcon和PHP，因为版本更新可以解决错误，增强安全性以及提高性能。
 {: .alert .alert-danger }
 
 Along with PHP 7.2 or greater, depending on your application needs and the Phalcon components you need, you might need to install the following extensions:
